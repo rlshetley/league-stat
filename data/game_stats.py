@@ -1,7 +1,10 @@
-from models import *
+from api.models import *
 from random import randint
 
 def create_hitting(session, player_id, game_id):
+    """
+    Function to create hitting statistics for a player
+    """
     totalAB = randint(3,8)
 
     hits = randint(0, totalAB)
@@ -51,8 +54,11 @@ def create_hitting(session, player_id, game_id):
 
     session.add(item)
     session.commit()
-    
+
 def create_pitching(session, player_id, game_id, innings):
+    """
+    Function to create pitching statistics for a player
+    """
     hits = randint(0, 15)
     strikeouts = randint(0, 15)
     runs = randint(0, 15)

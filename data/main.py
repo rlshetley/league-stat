@@ -1,6 +1,12 @@
+
+import os
+import sys
+parent_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
+sys.path.append(os.getcwd())
+
 from sqlalchemy import create_engine, and_
 from sqlalchemy.orm import sessionmaker
-from models import *
+from api.models import *
 import names
 import requests
 import json
@@ -20,7 +26,7 @@ def random_date(start, end):
     random_second = randrange(int_delta)
     return start + timedelta(seconds=random_second)
 
-engine = create_engine('mysql://lsuser:lsuser@127.0.0.1:3306/league-stat', echo=True)
+engine = create_engine('sqlite+pysqlite:///leagueStat.sqllite3', echo=True)
 
 Session = sessionmaker()
 
